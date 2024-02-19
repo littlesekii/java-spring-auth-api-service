@@ -1,0 +1,9 @@
+services:
+    db:
+        image: postgres
+        environment:
+            POSTGRES_USER: littlesekii
+            POSTGRES_PASSWORD: 123
+            POSTGRES_DB: DBAuth
+        ports:
+            - 1432:5432
