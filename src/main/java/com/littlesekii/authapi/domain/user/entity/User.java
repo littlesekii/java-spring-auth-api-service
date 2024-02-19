@@ -10,6 +10,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 
+@SuppressWarnings("unused")
 @Entity(name = "t_user")
 @Table(name = "t_user")
 public class User implements Serializable, UserDetails {

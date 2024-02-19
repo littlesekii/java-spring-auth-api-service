@@ -1,5 +1,6 @@
 package com.littlesekii.authapi.domain.user.entity.enums;
 
+@SuppressWarnings("unused")
 public enum UserRole {
     ADMIN("ADMIN"),
     USER("USER");
