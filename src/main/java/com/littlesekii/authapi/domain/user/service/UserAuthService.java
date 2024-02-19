@@ -1,7 +1,6 @@
-package com.littlesekii.authapi.domain.user.services;
+package com.littlesekii.authapi.domain.user.service;
 
 import com.littlesekii.authapi.domain.user.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
