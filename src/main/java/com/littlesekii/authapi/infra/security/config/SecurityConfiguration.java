@@ -1,4 +1,4 @@
-package com.littlesekii.authapi.infra.config;
+package com.littlesekii.authapi.infra.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
