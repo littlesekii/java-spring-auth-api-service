@@ -1,4 +1,4 @@
-package com.littlesekii.authapi.domain.user.entity.dto;
+package com.littlesekii.authapi.domain.auth.controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
