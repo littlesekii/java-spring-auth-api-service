@@ -1,12 +1,11 @@
 package com.littlesekii.authapi.domain.auth.service;
 
 import com.littlesekii.authapi.domain.auth.controller.dto.AuthTokenDTO;
-import com.littlesekii.authapi.domain.token.service.TokenService;
-import com.littlesekii.authapi.domain.user.entity.User;
 import com.littlesekii.authapi.domain.auth.controller.dto.UserAuthenticationDTO;
 import com.littlesekii.authapi.domain.auth.controller.dto.UserRegistrationDTO;
+import com.littlesekii.authapi.domain.token.service.TokenService;
+import com.littlesekii.authapi.domain.user.entity.User;
 import com.littlesekii.authapi.domain.user.service.UserAuthService;
-import org.apache.el.parser.Token;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 

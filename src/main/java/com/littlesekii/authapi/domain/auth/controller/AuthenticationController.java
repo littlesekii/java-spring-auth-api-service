@@ -2,10 +2,10 @@ package com.littlesekii.authapi.domain.auth.controller;
 
 import com.littlesekii.authapi.domain.auth.controller.dto.AuthTokenDTO;
 import com.littlesekii.authapi.domain.auth.controller.dto.MessageDTO;
-import com.littlesekii.authapi.domain.auth.service.AuthenticationService;
-import com.littlesekii.authapi.domain.user.entity.User;
 import com.littlesekii.authapi.domain.auth.controller.dto.UserAuthenticationDTO;
 import com.littlesekii.authapi.domain.auth.controller.dto.UserRegistrationDTO;
+import com.littlesekii.authapi.domain.auth.service.AuthenticationService;
+import com.littlesekii.authapi.domain.user.entity.User;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

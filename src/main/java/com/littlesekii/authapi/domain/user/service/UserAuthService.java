@@ -1,8 +1,8 @@
 package com.littlesekii.authapi.domain.user.service;
 
-import com.littlesekii.authapi.domain.user.entity.User;
 import com.littlesekii.authapi.domain.auth.controller.dto.UserAuthenticationDTO;
 import com.littlesekii.authapi.domain.auth.controller.dto.UserRegistrationDTO;
+import com.littlesekii.authapi.domain.user.entity.User;
 import com.littlesekii.authapi.domain.user.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
