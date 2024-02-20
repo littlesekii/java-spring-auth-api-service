@@ -33,9 +33,10 @@ public class SecurityFilter extends OncePerRequestFilter {
             @Nonnull FilterChain filterChain
     ) throws ServletException, IOException {
         String token = recoverHeaderToken(request);
+        String subject = tokenService.validate(token);
 
-        if (token != null) {
-            String subject = tokenService.validate(token);
+
+        if (!subject.isEmpty()) {
             UserDetails userDetails = userRepository.findByUsername(subject);
 
             var authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
