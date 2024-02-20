@@ -1,7 +1,7 @@
 package com.littlesekii.authapi.infra.security.filter;
 
 import com.littlesekii.authapi.domain.token.service.TokenService;
-import com.littlesekii.authapi.domain.user.service.UserAuthService;
+import com.littlesekii.authapi.domain.user.repository.UserRepository;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -19,11 +19,11 @@ import java.io.IOException;
 public class SecurityFilter extends OncePerRequestFilter {
 
     private final TokenService tokenService;
-    private final UserAuthService userAuthService;
+    private final UserRepository userRepository;
 
-    public SecurityFilter(TokenService tokenService, UserAuthService userAuthService) {
+    public SecurityFilter(TokenService tokenService, UserRepository userRepository) {
         this.tokenService = tokenService;
-        this.userAuthService = userAuthService;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 
         if (token != null) {
             String subject = tokenService.validate(token);
-            UserDetails userDetails = userAuthService.loadUserByUsername(subject);
+            UserDetails userDetails = userRepository.findByUsername(subject);
 
             var authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -52,6 +52,6 @@ public class SecurityFilter extends OncePerRequestFilter {
         if (authHeader == null)
             return null;
 
-        return authHeader.replace("Bearer: ", "");
+        return authHeader.replace("Bearer ", "");
     }
 }
