@@ -1,9 +1,11 @@
 package com.littlesekii.authapi.domain.auth.controller;
 
+import com.littlesekii.authapi.domain.auth.controller.dto.AuthTokenDTO;
+import com.littlesekii.authapi.domain.auth.controller.dto.MessageDTO;
 import com.littlesekii.authapi.domain.auth.service.AuthenticationService;
 import com.littlesekii.authapi.domain.user.entity.User;
-import com.littlesekii.authapi.domain.user.entity.dto.UserAuthenticationDTO;
-import com.littlesekii.authapi.domain.user.entity.dto.UserRegistrationDTO;
+import com.littlesekii.authapi.domain.auth.controller.dto.UserAuthenticationDTO;
+import com.littlesekii.authapi.domain.auth.controller.dto.UserRegistrationDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,18 +25,19 @@ public class AuthenticationController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<User> authenticate(@RequestBody @Valid UserAuthenticationDTO req) {
-        User res = service.authenticate(req);
+    public ResponseEntity<AuthTokenDTO> authenticate(@RequestBody @Valid UserAuthenticationDTO req) {
+        AuthTokenDTO res = service.authenticate(req);
         return ResponseEntity.ok().body(res);
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Object> register(@RequestBody @Valid UserRegistrationDTO req) {
-        User res = service.register(req);
+    public ResponseEntity<MessageDTO> register(@RequestBody @Valid UserRegistrationDTO req) {
+        User user = service.register(req);
 
-        if (res == null)
+        if (user == null)
             return ResponseEntity.badRequest().build();
 
+        MessageDTO res = new MessageDTO("User successfully registered.");
         return ResponseEntity.ok().body(res);
     }
 
